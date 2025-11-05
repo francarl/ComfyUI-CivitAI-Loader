@@ -1,8 +1,8 @@
 {
   "id": "f6f66a45-b5d6-4446-87b9-037380aaf60b",
   "revision": 0,
-  "last_node_id": 17,
-  "last_link_id": 29,
+  "last_node_id": 23,
+  "last_link_id": 35,
   "nodes": [
     {
       "id": 7,
@@ -16,13 +16,13 @@
         180.6060791015625
       ],
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 5
+          "link": 33
         }
       ],
       "outputs": [
@@ -42,46 +42,6 @@
       },
       "widgets_values": [
         "text, watermark"
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        415,
-        186
-      ],
-      "size": [
-        422.84503173828125,
-        164.31304931640625
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 28
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            4
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
       ]
     },
     {
@@ -121,54 +81,11 @@
       ]
     },
     {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        1209,
-        188
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 7
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 8
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            9
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 9,
       "type": "SaveImage",
       "pos": [
-        1451,
-        189
+        1560.502833668053,
+        205.42542863066734
       ],
       "size": [
         210,
@@ -191,6 +108,251 @@
       },
       "widgets_values": [
         "ComfyUI"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1289.5628404868114,
+        216.94004688813172
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "OnDemandLoraLoader",
+      "pos": [
+        -400.87904821982886,
+        -210.26314722923422
+      ],
+      "size": [
+        270,
+        174
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 30
+        },
+        {
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            27
+          ]
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "francarl/ComfyUI-OnDemand-Lora-Loader",
+        "ver": "7692e7bb5a528ca5f9d5988d1526a5646b3f9851",
+        "Node name for S&R": "OnDemandLoraLoader"
+      },
+      "widgets_values": [
+        "epi_noiseoffset",
+        1,
+        1,
+        "",
+        4
+      ]
+    },
+    {
+      "id": 22,
+      "type": "OnDemandCheckpointLoader",
+      "pos": [
+        -888.1669015139005,
+        -11.59362938551542
+      ],
+      "size": [
+        292.905859375,
+        146
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            31,
+            33
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "francarl/ComfyUI-OnDemand-Loaders",
+        "ver": "6bad65955f69db0b7cba0df967b7d74b98e5cc98",
+        "Node name for S&R": "OnDemandCheckpointLoader"
+      },
+      "widgets_values": [
+        "v1-5-pruned-emaonly-fp16",
+        "",
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        415,
+        186
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "OnDemandLoraLoader",
+      "pos": [
+        194.3472465642872,
+        -191.4912466964826
+      ],
+      "size": [
+        270,
+        174
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 27
+        },
+        {
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            29
+          ]
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "francarl/ComfyUI-OnDemand-Lora-Loader",
+        "ver": "7692e7bb5a528ca5f9d5988d1526a5646b3f9851",
+        "Node name for S&R": "OnDemandLoraLoader"
+      },
+      "widgets_values": [
+        "Studio Ghibli Style LoRA",
+        1,
+        1,
+        "",
+        1
       ]
     },
     {
@@ -245,174 +407,13 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        1080549289667505,
+        338922263340174,
         "randomize",
         20,
         8,
         "euler",
         "normal",
         1
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -729.9970192901748,
-        465.3275577968525
-      ],
-      "size": [
-        315,
-        98
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            25
-          ]
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "slot_index": 1,
-          "links": [
-            5,
-            26
-          ]
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "slot_index": 2,
-          "links": [
-            8
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67",
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "v1-5-pruned-emaonly-fp16.safetensors"
-      ]
-    },
-    {
-      "id": 16,
-      "type": "OnDemandLoraLoader",
-      "pos": [
-        -473.6203037648278,
-        -120.31438332949206
-      ],
-      "size": [
-        270,
-        174
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 25
-        },
-        {
-          "name": "clip",
-          "shape": 7,
-          "type": "CLIP",
-          "link": 26
-        }
-      ],
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            27
-          ]
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": [
-            28
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "francarl/ComfyUI-OnDemand-Lora-Loader",
-        "ver": "7692e7bb5a528ca5f9d5988d1526a5646b3f9851",
-        "Node name for S&R": "OnDemandLoraLoader"
-      },
-      "widgets_values": [
-        "epi_noiseoffset",
-        1,
-        1,
-        "",
-        4
-      ]
-    },
-    {
-      "id": 17,
-      "type": "OnDemandLoraLoader",
-      "pos": [
-        -108.35000981005378,
-        116.6811048152902
-      ],
-      "size": [
-        270,
-        174
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 27
-        },
-        {
-          "name": "clip",
-          "shape": 7,
-          "type": "CLIP",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            29
-          ]
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "francarl/ComfyUI-OnDemand-Lora-Loader",
-        "ver": "7692e7bb5a528ca5f9d5988d1526a5646b3f9851",
-        "Node name for S&R": "OnDemandLoraLoader"
-      },
-      "widgets_values": [
-        "Studio Ghibli Style LoRA",
-        1,
-        1,
-        "",
-        4
       ]
     }
   ],
@@ -434,14 +435,6 @@
       "CONDITIONING"
     ],
     [
-      5,
-      4,
-      1,
-      7,
-      0,
-      "CLIP"
-    ],
-    [
       6,
       7,
       0,
@@ -458,36 +451,12 @@
       "LATENT"
     ],
     [
-      8,
-      4,
-      2,
-      8,
-      1,
-      "VAE"
-    ],
-    [
       9,
       8,
       0,
       9,
       0,
       "IMAGE"
-    ],
-    [
-      25,
-      4,
-      0,
-      16,
-      0,
-      "MODEL"
-    ],
-    [
-      26,
-      4,
-      1,
-      16,
-      1,
-      "CLIP"
     ],
     [
       27,
@@ -498,20 +467,60 @@
       "MODEL"
     ],
     [
-      28,
-      16,
-      1,
-      6,
-      0,
-      "CLIP"
-    ],
-    [
       29,
       17,
       0,
       3,
       0,
       "MODEL"
+    ],
+    [
+      30,
+      22,
+      0,
+      16,
+      0,
+      "MODEL"
+    ],
+    [
+      31,
+      22,
+      1,
+      16,
+      1,
+      "CLIP"
+    ],
+    [
+      32,
+      22,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      33,
+      22,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      34,
+      16,
+      1,
+      17,
+      1,
+      "CLIP"
+    ],
+    [
+      35,
+      17,
+      1,
+      6,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [],
@@ -520,8 +529,8 @@
     "ds": {
       "scale": 0.8523369657374481,
       "offset": [
-        868.6128138432914,
-        234.9012722729391
+        975.7693546322258,
+        370.21540427770117
       ]
     },
     "frontendVersion": "1.28.8"

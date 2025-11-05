@@ -8,5 +8,26 @@
             "name": "Studio Ghibli Style LoRA",
             "url": "https://civitai.com/api/download/models/7657?type=Model&format=SafeTensor&size=full&fp=fp16"
         }
+    ],
+    "diffusion_models": [
+        {
+            "name": "SDXL 0.9 Base",
+            "url": "https://huggingface.co/stabilityai/sdxl-0.9-base/resolve/main/sdxl_0.9_base_1.0.safetensors"
+        },
+        {
+            "name": "SDXL 0.9 Refiner",
+            "url": "https://huggingface.co/stabilityai/sdxl-0.9-refiner/resolve/main/sdxl_0.9_refiner_1.0.safetensors"
+        }
+    ],
+    "checkpoints": [
+        {
+            "name": "chilloutmix_NiPrunedFp32Fix",
+            "url": "https://civitai.com/api/download/models/15545?type=Model&format=Checkpoint&size=full&fp=fp32"
+        },
+        {
+            "name": "v1-5-pruned-emaonly-fp16",
+            "url": "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors"
+        }
     ]
+
 }
