@@ -97,6 +97,8 @@ You can get the download link from a model's page on Civitai/HuggingFace by righ
 3.  Select the desired model from the dropdown. The first time you queue a workflow with a new model, it will be automatically downloaded to the corresponding directory inside `ComfyUI/models/`.
 4.  Connect the node in your workflow just as you would with a standard loader. An example workflow can be found in `example/workflow_example.json`.
 
+After modifying `config.json`, press "R" to reload configuration and update workflow without restarting ComfyUI.
+
 ### 3. Common Node Options
 
 *   `..._name`: A dropdown menu to select the model you configured in `config.json`.

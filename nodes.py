@@ -168,6 +168,7 @@ class OnDemandLoraLoader:
     @classmethod
     def INPUT_TYPES(cls):
 
+        NODE_CONFIG = load_config()
         loras = [lora["name"] for lora in NODE_CONFIG.get("loras", []) ]
        
         return {
@@ -218,6 +219,7 @@ class OnDemandUNETLoader:
     @classmethod
     def INPUT_TYPES(cls):
 
+        NODE_CONFIG = load_config()
         models = [model["name"] for model in NODE_CONFIG.get("diffusion_models", []) ]
        
         return {
@@ -264,6 +266,7 @@ class OnDemandCheckpointLoader:
     @classmethod
     def INPUT_TYPES(cls):
 
+        NODE_CONFIG = load_config()
         models = [model["name"] for model in NODE_CONFIG.get("checkpoints", []) ]
        
         return {
@@ -309,6 +312,7 @@ class OnDemandVAELoader:
     @classmethod
     def INPUT_TYPES(cls):
 
+        NODE_CONFIG = load_config()
         models = [model["name"] for model in NODE_CONFIG.get("vae_models", []) ]
        
         return {
@@ -351,6 +355,7 @@ class OnDemandCLIPLoader:
     @classmethod
     def INPUT_TYPES(s):
 
+        NODE_CONFIG = load_config()
         models = [model["name"] for model in NODE_CONFIG.get("clip_models", []) ]
 
         return {"required": { 
@@ -394,6 +399,7 @@ class OnDemandGGUFLoader:
     @classmethod
     def INPUT_TYPES(s):
 
+        NODE_CONFIG = load_config()
         models = [model["name"] for model in NODE_CONFIG.get("gguf_models", []) ]
 
         return {"required": { 
