@@ -22,7 +22,10 @@ This package includes the following nodes:
 *   `OnDemand CLIP Loader`
 *   `OnDemand GGUF Loader` (Note: Requires [ComfyUI-GGUF](https://github.com/jquesnelle/ComfyUI-GGUF) to be installed.)
 
-## Installation
+## Installation with ComfyUI-Manager
+Search for "OnDemand-Loaders" in custom node list.
+
+## Manual installation
 
 1.  Navigate to your ComfyUI `custom_nodes` directory:
     ```bash
